@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="RockPaperScissorsGame.MainPage">
+
+    <StackLayout Margin="10">
+        <Label FontSize="18" HorizontalOptions="Center"> Rock Paper Scissors</Label>
+        <!-- Place new controls here -->
+        <Editor  
+                Placeholder="Computer Choice"
+                Text="{Binding ComputerChoiceText}" IsEnabled="False"/>
+        <Entry x:Name="ComputerChoiceEntry" IsEnabled="False">
+            
+        </Entry>
+        <StackLayout>
+            <Picker x:Name="HandsPicker" Title="Choose Weapon" FontSize="18"></Picker>
+        </StackLayout>
+
+
+        <StackLayout>
+            <Button x:Name="BattleButton" Text="Battle!" Clicked="BattleButtonClicked"></Button>
+        </StackLayout>
+        
+        
+        <StackLayout>
+            <Editor
+                x:Name="Result"
+                Placeholder="Winner"
+                Text="{Binding WinnerText}" IsEnabled="False">
+            </Editor>
+            <Entry x:Name="ResultText" IsEnabled="False">
+
+            </Entry>
+        </StackLayout>
+
+        <StackLayout>
+            <Label FontSize="20"> Stats</Label>
+            
+            <Entry x:Name="WinText" IsEnabled="False">
+                
+            </Entry>
+
+            <Entry x:Name="LoseText" IsEnabled="False">
+                
+            </Entry>
+
+            <Entry x:Name="DrawText" IsEnabled="False">
+                
+            </Entry>
+
+            <Entry x:Name="WinPercentageText" IsEnabled="False">
+
+            </Entry>
+        </StackLayout>
+        
+
+       
+       
+        
+        
+    </StackLayout>
+
+</ContentPage>
