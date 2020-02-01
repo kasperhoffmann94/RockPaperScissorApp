@@ -21,10 +21,10 @@
 
 
         <StackLayout>
-            <Button x:Name="BattleButton" Text="Battle!" Clicked="BattleButtonClicked"></Button>
+            <Button x:Name="BattleButton" Text="Battle!" Clicked="BattleButton_Clicked"></Button>
         </StackLayout>
-        
-        
+
+
         <StackLayout>
             <Editor
                 x:Name="Result"
@@ -37,30 +37,18 @@
         </StackLayout>
 
         <StackLayout>
-            <Label FontSize="20"> Stats</Label>
-            
+
             <Entry x:Name="WinText" IsEnabled="False">
-                
-            </Entry>
-
-            <Entry x:Name="LoseText" IsEnabled="False">
-                
-            </Entry>
-
-            <Entry x:Name="DrawText" IsEnabled="False">
-                
-            </Entry>
-
-            <Entry x:Name="WinPercentageText" IsEnabled="False">
 
             </Entry>
         </StackLayout>
         
+        <StackLayout>
+            <Button x:Name="StatsButton" Text="Stats" Clicked="StatsButton_Clicked">
+                
+            </Button>
+        </StackLayout>
 
-       
-       
-        
-        
     </StackLayout>
 
 </ContentPage>

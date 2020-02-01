@@ -19,6 +19,7 @@ namespace RockPaperScissorsGame
         int wincounter;
         int loseCounter;
         int drawCounter;
+        StatsPage stats;
         public MainPage()
         {
             InitializeComponent();
@@ -29,6 +30,7 @@ namespace RockPaperScissorsGame
             wincounter = 0;
             loseCounter = 0;
             drawCounter = 0;
+            stats = new StatsPage();
             
              
         }
@@ -46,7 +48,7 @@ namespace RockPaperScissorsGame
             picker.ItemsSource = hands;
         }
 
-        public void BattleButtonClicked(object sender, EventArgs args)
+        public void BattleButton_Clicked(object sender, EventArgs args)
         {
           
             computerChoice = GenerateComputerMove();
@@ -57,49 +59,47 @@ namespace RockPaperScissorsGame
                 if  (computerChoice == "Paper" && HandsPicker.SelectedItem.ToString() == "Rock")
                 {
                     ResultText.Text = "Computer Wins!";
-                    loseCounter++;
-                    LoseText.Text = "Lost: " + loseCounter;
-                    WinPercentageText.Text = "Win %: " + CalcWinPercentage() + "%";
+
                 }
                 else if (computerChoice == "Paper" && HandsPicker.SelectedItem.ToString() == "Scissors")
                 {
                     ResultText.Text = "Player Wins!";
                     wincounter++;
                     WinText.Text = "Wins: " + wincounter;
-                    WinPercentageText.Text = "Win %: " + CalcWinPercentage() + "%";
+                   // WinPercentageText.Text = "Win %: " + CalcWinPercentage() + "%";
                 }
                 else if (computerChoice == "Rock" && HandsPicker.SelectedItem.ToString() == "Paper")
                 {
                     ResultText.Text = "Player Wins!";
                     wincounter++;
                     WinText.Text = "Wins: " + wincounter;
-                    WinPercentageText.Text = "Win %: " + CalcWinPercentage() + "%";
+                   // WinPercentageText.Text = "Win %: " + CalcWinPercentage() + "%";
                 }
                 else if (computerChoice == "Rock" && HandsPicker.SelectedItem.ToString() == "Scissors")
                 {
                     ResultText.Text = "Computer Wins!";
                     loseCounter++;
-                    LoseText.Text = "Lost: " + loseCounter;
-                    WinPercentageText.Text = "Win %: " + CalcWinPercentage() + "%";
+                   // LoseText.Text = "Lost: " + loseCounter;
+                    // WinPercentageText.Text = "Win %: " + CalcWinPercentage() + "%";
                 }
                 else if (computerChoice == "Scissors" && HandsPicker.SelectedItem.ToString() == "Paper")
                 {
                     ResultText.Text = "Computer Wins!";
                     loseCounter++;
-                    LoseText.Text = "Lost: " + loseCounter;
-                    WinPercentageText.Text = "Win %: " + CalcWinPercentage() + "%";
+                   // LoseText.Text = "Lost: " + loseCounter;
+                   // WinPercentageText.Text = "Win %: " + CalcWinPercentage() + "%";
                 }
                 else if (computerChoice == "Scissors" && HandsPicker.SelectedItem.ToString() == "Rock")
                 {
                     ResultText.Text = "Player Wins!";
                     wincounter++;
                     WinText.Text = "Wins: " + wincounter;
-                    WinPercentageText.Text = "Win %: " + CalcWinPercentage() + "%";
+                   // WinPercentageText.Text = "Win %: " + CalcWinPercentage() + "%";
                 } else
                 {
                     ResultText.Text = "DRAW!";
                     drawCounter++;
-                    DrawText.Text = "Draws: " + drawCounter;
+                    // DrawText.Text = "Draws: " + drawCounter;
                 }
             } else
             {
@@ -137,24 +137,11 @@ namespace RockPaperScissorsGame
             return pickedMove;
         }
 
-        public double CalcWinPercentage()
-        {
-            double Total = 0.0;
-            double temp = 0.0;
-            double result = 0.0;
-            if (wincounter != 0 && loseCounter != 0)
-            {
-                Total = wincounter + loseCounter;
-                temp = wincounter / Total;
-                result = temp * 100;
-                return Math.Round(result);
-            } 
-            else
-            {
-                return Math.Round(result);
-            }
+       
 
-          
+        private void StatsButton_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new StatsPage());
         }
     }
 }
