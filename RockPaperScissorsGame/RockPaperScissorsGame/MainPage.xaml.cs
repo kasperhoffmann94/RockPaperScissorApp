@@ -16,10 +16,9 @@ namespace RockPaperScissorsGame
         List<string> hands;
         Picker picker;
         string computerChoice;
-        int wincounter;
+        int winCounter;
         int loseCounter;
         int drawCounter;
-        StatsPage stats;
         public MainPage()
         {
             InitializeComponent();
@@ -27,10 +26,9 @@ namespace RockPaperScissorsGame
             FillHandsPicker();
             SetPicker();
             computerChoice = "";
-            wincounter = 0;
+            winCounter = 0;
             loseCounter = 0;
             drawCounter = 0;
-            stats = new StatsPage();
             
              
         }
@@ -64,42 +62,34 @@ namespace RockPaperScissorsGame
                 else if (computerChoice == "Paper" && HandsPicker.SelectedItem.ToString() == "Scissors")
                 {
                     ResultText.Text = "Player Wins!";
-                    wincounter++;
-                    WinText.Text = "Wins: " + wincounter;
-                   // WinPercentageText.Text = "Win %: " + CalcWinPercentage() + "%";
+                    winCounter++;
+                    WinText.Text = "Wins: " + winCounter;
                 }
                 else if (computerChoice == "Rock" && HandsPicker.SelectedItem.ToString() == "Paper")
                 {
                     ResultText.Text = "Player Wins!";
-                    wincounter++;
-                    WinText.Text = "Wins: " + wincounter;
-                   // WinPercentageText.Text = "Win %: " + CalcWinPercentage() + "%";
+                    winCounter++;
+                    WinText.Text = "Wins: " + winCounter;
                 }
                 else if (computerChoice == "Rock" && HandsPicker.SelectedItem.ToString() == "Scissors")
                 {
                     ResultText.Text = "Computer Wins!";
                     loseCounter++;
-                   // LoseText.Text = "Lost: " + loseCounter;
-                    // WinPercentageText.Text = "Win %: " + CalcWinPercentage() + "%";
                 }
                 else if (computerChoice == "Scissors" && HandsPicker.SelectedItem.ToString() == "Paper")
                 {
                     ResultText.Text = "Computer Wins!";
                     loseCounter++;
-                   // LoseText.Text = "Lost: " + loseCounter;
-                   // WinPercentageText.Text = "Win %: " + CalcWinPercentage() + "%";
                 }
                 else if (computerChoice == "Scissors" && HandsPicker.SelectedItem.ToString() == "Rock")
                 {
                     ResultText.Text = "Player Wins!";
-                    wincounter++;
-                    WinText.Text = "Wins: " + wincounter;
-                   // WinPercentageText.Text = "Win %: " + CalcWinPercentage() + "%";
+                    winCounter++;
+                    WinText.Text = "Wins: " + winCounter;
                 } else
                 {
                     ResultText.Text = "DRAW!";
                     drawCounter++;
-                    // DrawText.Text = "Draws: " + drawCounter;
                 }
             } else
             {
@@ -141,7 +131,7 @@ namespace RockPaperScissorsGame
 
         private void StatsButton_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new StatsPage());
+            Navigation.PushAsync(new StatsPage(winCounter, loseCounter, drawCounter));
         }
     }
 }

@@ -12,30 +12,33 @@ namespace RockPaperScissorsGame
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class StatsPage : ContentPage
     {
-        int loseCounter;
-        int winCounter;
-        public StatsPage()
+        int _loseCounter;
+        int _winCounter;
+        int _drawCounter;
+        int _totalGames;
+        public StatsPage(int winCounter, int loseCounter, int drawCounter)
         {
             InitializeComponent();
-            loseCounter = 0;
-            winCounter = 0;
-        }
-
-       private void StatsButton_Clicked(object sender, EventArgs e)
-        {
-            LoseText.Text = "Lost: " + loseCounter;
+            _loseCounter = loseCounter;
+            _winCounter = winCounter;
+            _drawCounter = drawCounter;
+            _totalGames = 0;
+            WinText.Text = "Wins: " + _winCounter;
+            LoseText.Text = "Loses: " + _loseCounter;
+            DrawText.Text = "Draws: " + _drawCounter;
+            TotalGamesText.Text = _winCounter + _loseCounter + _drawCounter + " total games played";
             WinPercentageText.Text = "Win %: " + CalcWinPercentage() + "%";
         }
 
         public double CalcWinPercentage()
         {
-            double Total = 0.0;
-            double temp = 0.0;
+            double Total;
+            double temp;
             double result = 0.0;
-            if (winCounter != 0 && loseCounter != 0)
+            if (_winCounter != 0 && _loseCounter != 0)
             {
-                Total = winCounter + loseCounter;
-                temp = winCounter / Total;
+                Total = _winCounter + _loseCounter;
+                temp = _winCounter / Total;
                 result = temp * 100;
                 return Math.Round(result);
             }

@@ -13,6 +13,9 @@
             
             <StackLayout>
 
+                <Entry x:Name="WinText" IsEnabled="False">
+                    
+                </Entry>
 
                 <Entry x:Name="LoseText" IsEnabled="False">
 
@@ -22,11 +25,14 @@
 
                 </Entry>
 
+                <Entry x:Name="TotalGamesText" IsEnabled="False">
+                    
+                </Entry>
+
                 <Entry x:Name="WinPercentageText" IsEnabled="False">
 
                 </Entry>
             </StackLayout>
-
 
 
         </StackLayout>
